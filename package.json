@@ -1,0 +1,42 @@
+{
+  "name": "tabs-to-spaces-stream",
+  "version": "0.0.0-development",
+  "description": "converts tabs to spaces over a stream",
+  "main": "src/index.js",
+  "scripts": {
+    "commit": "git-cz",
+    "check-coverage": "nyc check-coverage --statements 100 --branches 100 --functions 100 --lines 100",
+    "report-coverage": "cat ./coverage/lcov.info | codecov",
+    "test": "mocha test --compilers js:babel-register",
+    "test:watch": "npm t -- -w",
+    "cover": "nyc npm t",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/emilkloeden/tabs-to-spaces-stream.git"
+  },
+  "keywords": [
+    "tabs",
+    "spaces"
+  ],
+  "author": "emilkloeden",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/emilkloeden/tabs-to-spaces-stream/issues"
+  },
+  "homepage": "https://github.com/emilkloeden/tabs-to-spaces-stream#readme",
+  "devDependencies": {
+    "babel-register": "^6.22.0",
+    "chai": "^3.5.0",
+    "codecov.io": "^0.1.6",
+    "cz-conventional-changelog": "^1.2.0",
+    "husky": "^0.13.0",
+    "mocha": "^3.2.0",
+    "nyc": "^10.1.2",
+    "semantic-release": "^6.3.2"
+  },
+  "czConfig": {
+    "path": "node_modules/cz-conventional-changelog"
+  }
+}
