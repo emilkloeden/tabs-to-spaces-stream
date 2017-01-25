@@ -11,7 +11,7 @@
     "test": "mocha -R spec test --compilers js:babel-register --timeout 15000",
     "test:single": "istanbul cover -x *.test.js _mocha -- -R spec test/index.test.js",
     "test:watch": "npm t -- -w",
-    "cover": "nyc --reporter=lcov npm t",
+    "cover": "nyc --reporter=lcov --reporter=json npm t",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "repository": {
@@ -33,7 +33,6 @@
     "chai": "^3.5.0",
     "codecov": "^1.0.1",
     "commitizen": "^2.9.5",
-    "concat-stream": "^1.6.0",
     "cz-conventional-changelog": "^1.2.0",
     "husky": "^0.13.0",
     "istanbul": "^0.4.5",
