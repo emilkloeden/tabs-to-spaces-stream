@@ -1,3 +1,11 @@
+/**
+ * Returns a string converting tabs to spaces
+ *
+ * @param {string} str
+ * @param {number} [numberOfSpaces=2] The number of spaces 
+ * to replace each tab with. Default is 2.
+ * @returns {string}
+ */
 function convert(str, numberOfSpaces=2) {
     if (typeof str !== 'string') {
         str = str.toString()

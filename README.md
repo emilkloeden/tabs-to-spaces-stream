@@ -27,31 +27,36 @@ myStream
 ## API
 ### convertStream(numberOfSpaces)
 ```js
+ const {convertStream} = require('tabs-to-spaces-stream')
 /**
  * Returns a transform stream converting tabs to spaces. 
- Buffer streams will be converted to strings by default.
+ * Buffer streams will be converted to strings by default.
  *
- * @param {number} [numberOfSpaces=2]
- *  The number of spaces to replace each tab with. Default is 2.
- Throws a RangeError if < 0  or > 8
+ * @param {number} [numberOfSpaces=2] The number of spaces 
+ * to replace each tab with.
+ * @throws {RangeError}
+ * @returns {stream}
  */
 
- src.pipe(convertStream()).pipe(dest)
+ src
+    .pipe(convertStream())
+    .pipe(dest)
  ```
 
 ### convert(str, numberOfSpaces)
+Alternatively you can use the base function that converts tabs to spaces in a string.
 
  ```js
+  const {convert} = require('tabs-to-spaces-stream')
 /**
  * Returns a string converting tabs to spaces
  *
  * @param {string} str
- *  A string on which to operate
- * @param {number} [numberOfSpaces=2]
- *  The number of spaces to replace each tab with. Default is 2.
+ * @param {number} [numberOfSpaces=2] The number of spaces 
+ * to replace each tab with. Default is 2.
+ * @returns {string}
  */
 
- const {convert} = require('tabs-to-spaces-stream')
  convert('Hello   world', 6) // 'Hello      world'
  ```
 
