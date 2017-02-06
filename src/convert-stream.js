@@ -1,5 +1,5 @@
-const {Transform} = require('stream')
 const {convert} = require('./convert')
+const map = require('streams-map')
 
 /**
  * Returns a transform stream converting tabs to spaces. 
@@ -10,16 +10,9 @@ const {convert} = require('./convert')
  * @throws {RangeError}
  * @returns {stream}
  */
+
 function convertStream(numberOfSpaces=2) {
-    const myTransform = new Transform({
-        transform(chunk, encoding, callback) {
-            chunk = chunk.toString('utf8')
-            this.push(convert(chunk, numberOfSpaces))
-            
-            callback()
-        }
-    })
-    return myTransform
+    return map(convert, numberOfSpaces)
 }
 
 module.exports = {
